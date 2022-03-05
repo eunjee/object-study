@@ -2,13 +2,10 @@ package com.example.chapter2.src;
 
 import com.example.chapter2.src.discount.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalTime;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Movie 클래스")
 class MovieTest {
@@ -19,7 +16,7 @@ class MovieTest {
                 Money.wons(10000),
                 given_아바타_할인정책());
     }
-    private DiscountPolicy given_아바타_할인정책() {
+    private DefaultDiscountPolicy given_아바타_할인정책() {
         return new AmountDiscountPolicy(Money.wons(800),
                 new SequenceCondition(1),
                 new SequenceCondition(10),
@@ -35,7 +32,7 @@ class MovieTest {
                 given_타이타닉_할인정책);
     }
 
-    private final DiscountPolicy given_타이타닉_할인정책 = new PercentDiscountPolicy(0.1,
+    private final DefaultDiscountPolicy given_타이타닉_할인정책 = new PercentDiscountPolicy(0.1,
             new PeriodCondition(DayOfWeek.TUESDAY, LocalTime.of(14, 0), LocalTime.of(16, 59)),
             new SequenceCondition(2),
             new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10, 0), LocalTime.of(13, 59)));
@@ -48,6 +45,6 @@ class MovieTest {
                 given_스타워즈_할인정책());
     }
 
-    private DiscountPolicy given_스타워즈_할인정책(){new NoneDiscountPolicy();}
+    private DiscountPolicy given_스타워즈_할인정책(){return new NoneDiscountPolicy();}
 
 }

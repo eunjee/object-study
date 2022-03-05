@@ -1,5 +1,6 @@
 package com.example.chapter2.src;
 
+import com.example.chapter2.src.discount.DefaultDiscountPolicy;
 import com.example.chapter2.src.discount.DiscountPolicy;
 
 import java.time.Duration;

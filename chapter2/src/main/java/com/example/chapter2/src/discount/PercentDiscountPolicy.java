@@ -3,9 +3,7 @@ package com.example.chapter2.src.discount;
 import com.example.chapter2.src.Money;
 import com.example.chapter2.src.Screening;
 
-import java.util.List;
-
-public class PercentDiscountPolicy extends DiscountPolicy{
+public class PercentDiscountPolicy extends DefaultDiscountPolicy {
     private double percent;
 
     public PercentDiscountPolicy(double percent,DiscountCondition ... conditions) {
